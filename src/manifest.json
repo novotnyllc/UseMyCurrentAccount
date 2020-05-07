@@ -1,0 +1,19 @@
+{
+  "name": "Use my Current Account",
+  "version": "1.0",
+  "description": "Use the current profile account when signing in to Microsoft",
+  "permissions": [
+    "tabs",
+    "identity",
+    "identity.email",
+    "webRequest",
+    "webRequestBlocking",
+    "*://login.microsoftonline.com/*"
+  ],
+  "author": "ClaireRNovotny",
+  "background": {
+    "persistent":  true,
+    "scripts": [ "background.js" ]
+  },
+  "manifest_version": 2
+}
