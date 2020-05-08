@@ -1,7 +1,11 @@
 
 chrome.identity.getProfileUserInfo(function(userInfo) { email = userInfo.email; });
 
-getState(function(state) {useCurrentAccount = state;});
+useCurrentAccount = true;
+
+getState(function(state) {
+   updateIcon(state);
+});
 
 chrome.webRequest.onBeforeRequest.addListener(function(details){
    
@@ -29,8 +33,14 @@ function setState(state){
 
 function getState(callback) {
    chrome.storage.local.get('state', function(data) {
-       useCurrentAccount = data.state;
-       callback(data.state);
+      if(data.state === undefined) {
+         useCurrentAccount = true;
+      }
+      else{
+         useCurrentAccount = data.state;
+      }
+
+      callback(useCurrentAccount);
    });
 }
 
