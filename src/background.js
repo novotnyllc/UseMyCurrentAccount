@@ -57,11 +57,12 @@ chrome.browserAction.onClicked.addListener(function() {
 });
 
 function updateIcon(state) {
-   var color = state ? [255, 0, 0, 255] : [190, 190, 190, 230];
-   var text = state ? 'On' : 'Off';
+   var color = [255, 0, 0, 255];
+   var text = state ? '' : 'Off';
    chrome.browserAction.setBadgeBackgroundColor({
        color: color
    });
+
    chrome.browserAction.setBadgeText({
        text: text
    });
