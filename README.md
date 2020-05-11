@@ -1,5 +1,7 @@
 # UseMyCurrentAccount
 
+Get it in the [Edge Extension Store](https://microsoftedge.microsoft.com/addons/detail/hbfacnnpimgddoojjaonnnbeljegicfl)
+
 If you have multiple "Connected to Windows" accounts, you'll be prompted to pick which account 
 every time you access a site that requires a login.
 
