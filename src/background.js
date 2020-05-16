@@ -24,6 +24,26 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
 ["blocking"]
 );
 
+chrome.webRequest.onBeforeRequest.addListener(function(details){
+   
+   if(useCurrentAccount === true ){
+      var url = new URL(details.url);        
+
+      var search = url.searchParams;
+      if(!search.has("whr")) {
+
+         var domain = email.split('@').pop()
+         search.append("whr", domain);
+   
+         return { redirectUrl: url.toString()};
+      }
+   }    
+},
+{urls:["*://login.microsoftonline.com/*/saml2*",
+       "*://login.microsoftonline.com/*/wsfed*"]},
+["blocking"]
+);
+
 function setState(state){
    useCurrentAccount = state;
    chrome.storage.local.set({
